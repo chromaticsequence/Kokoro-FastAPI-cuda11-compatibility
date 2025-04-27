@@ -14,7 +14,7 @@ dependencies = [
     "python-dotenv==1.0.1",
     "sqlalchemy==2.0.27",
     # ML/DL Base
-    "numpy>=1.26.0",
+    "numpy>=1.26.0,<2.0", # Pinned below 2.0 for PyTorch 2.1.x compatibility
     "scipy==1.14.1",
     # Audio processing
     "soundfile==0.13.0",
@@ -44,7 +44,7 @@ dependencies = [
 
 [project.optional-dependencies]
 gpu = [
-    "torch==2.6.0+cu124",
+    "torch==2.1.2+cu118", # Changed for CUDA 11.8 compatibility
 ]
 cpu = [
     "torch==2.6.0",
@@ -79,7 +79,7 @@ explicit = true
 
 [[tool.uv.index]]
 name = "pytorch-cuda"
-url = "https://download.pytorch.org/whl/cu124"
+url = "https://download.pytorch.org/whl/cu118" # Changed for CUDA 11.8 compatibility
 explicit = true
 
 [build-system]

@@ -39,7 +39,9 @@ Refer to the core/config.py file for a full list of variables which can be manag
  Feedback/testing is always welcome
 
 docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-cpu:latest # CPU, or:
-docker run --gpus all -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest  #NVIDIA GPU
+docker run --gpus all -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest  # NVIDIA GPU (Requires CUDA 12.1+ compatible driver)
+# **Note for Older GPUs (Pascal/Maxwell/etc.):** If the above command fails (e.g., Exit Code 139), your GPU might require CUDA 11.x. Use the `cuda11` tag instead:
+# docker run --gpus all -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-gpu:cuda11
 ```
 
 
